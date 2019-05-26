@@ -1,1 +1,20 @@
 ---
+- name: Install GPG key (EL)
+  rpm_key:
+    key: "{{ rpm.gpg_key }}"
+    state: present
+  when: ansible_os_family == 'RedHat'
+
+- name: Set repo URL to stable (EL)
+  set_fact:
+    repo_url: "{{ rpm.stable }}"
+  when: ansible_os_family == 'RedHat' and channel == 'stable'
+
+- name: Add Sublime repo (EL)
+  get_url:
+    url: "{{ repo_url }}"
+    dest: '/etc/yum.repos.d/sublime-text.repo'
+    owner: root
+    group: root
+    mode: 0644
+  when: ansible_os_family == 'RedHat'
