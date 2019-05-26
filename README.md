@@ -18,15 +18,13 @@ channel: stable
 Whether to use the `stable` or `dev` repo channel.
 
 ```
-sublime-text:
-  install: yes
-  version: latest
-sublime-merge: yes
-  install: yes
-  version: latest
+sublime_text:
+  state: latest
+sublime_merge:
+  state: latest
 ```
 
-What products to install and what versions.
+What products to install.
 
 ```
 apt:
