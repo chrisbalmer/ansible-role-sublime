@@ -1,1 +1,5 @@
 ---
+- name: Install sublime-merge
+  package:
+    name: sublime-merge
+    state: "{{ sublime_merge.state }}"

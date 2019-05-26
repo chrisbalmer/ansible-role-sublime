@@ -1,1 +1,5 @@
 ---
+- name: Install sublime-text
+  package:
+    name: sublime-text
+    state: "{{ sublime_text.state }}"
